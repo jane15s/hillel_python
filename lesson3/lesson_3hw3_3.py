@@ -61,3 +61,13 @@ if len(fifth_list) % 2 != 0:
     mid_index +=1
 final_list5 = [fifth_list[:mid_index], fifth_list[mid_index:]]
 print(final_list5)
+
+#using loop (practicing lesson4)
+all_lists = [first_list, second_list, third_list, fourth_list, fifth_list]
+
+for single_list in all_lists:
+    mid_index = len(single_list) // 2
+    if len(single_list) % 2 != 0:
+        mid_index += 1
+    final_list = [single_list[:mid_index], single_list[mid_index:]]
+    print(final_list)
