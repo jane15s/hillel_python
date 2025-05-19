@@ -19,11 +19,20 @@ matrix = [
     [] # 2
 ]
 
+# for some_list in matrix:
+#     if some_list: # if list is not empty
+#         result = 0 # result value to start
+#         for i in some_list[::2]: # for element of some_list list where step is 2
+#             result = result + i # summing 0 with first element with even index (0) + second...(2)
+#         final_result = result * some_list[-1]
+#     else:
+#         final_result = 0
+#     print(final_result)
+
+# one loop & sum
 for some_list in matrix:
-    if some_list: # if list is not empty
-        result = 0 # result value to start
-        for i in some_list[::2]: # for element of some_list list where step is 2
-            result = result + i # summing 0 with first element with even index (0) + second...(2)
+    if some_list:
+        result = sum(some_list[::2])
         final_result = result * some_list[-1]
     else:
         final_result = 0
