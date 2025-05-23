@@ -80,7 +80,7 @@ for test_value in test_data:
     if test_value.count("_") > 1 and "__" in test_value: # only one underscore for single-digit value & snake case in general
         print(f"{test_value} => False")
         continue
-    if any(char.isspace() for char in test_value):
+    if any(char.isspace() for char in test_value): # no spaces
         print(f"{test_value} => False")
         continue
     print(f"{test_value} => True")
