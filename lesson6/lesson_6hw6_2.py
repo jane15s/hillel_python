@@ -47,4 +47,6 @@ else:
         final_secs = str(sec_left).zfill(2)
         final_mins = str(mins_left).zfill(2)
         final_hours = str(hours_left).zfill(2)
-        print(f"{days} {written_days} {final_hours}:{final_mins}:{final_secs}")
+        print(f"{days} {written_days}, {final_hours}:{final_mins}:{final_secs}")
+    else:
+        print("Enter the number of seconds in range 0 to 8640000")

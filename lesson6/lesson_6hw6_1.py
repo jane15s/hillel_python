@@ -16,14 +16,14 @@
 import string
 
 # print(string.ascii_letters)
-underscore_excluded = string.punctuation.replace("-", "")
 allowed_values = string.ascii_letters
 users_input = input("Enter two letters to select the range using \"-\" in between, e.g. \"b-s\": ")
+users_input = users_input.replace(" ", "")
 
 if len(users_input) != 3:
     print("Wrong input, please follow the rules")
-elif users_input[1] in underscore_excluded:
-    print("Wrong delimiter, please use \"-\"")
+elif users_input[1] != "-":
+    print("Wrong or missing delimiter, please use \"-\"")
 elif users_input[0] not in allowed_values or users_input[2] not in allowed_values:
     print(f"Check your input again. Please make sure that you've used the following letters: {allowed_values}")
 else:
