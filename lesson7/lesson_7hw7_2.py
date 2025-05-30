@@ -13,7 +13,7 @@
 """
 import string
 
-def correct_sentence(text):
+def correct_sentence(text: str):
     correct_sent = text[0].upper() + text[1:]
     while correct_sent[-1] in string.punctuation and correct_sent[-1] != ".":
         correct_sent = correct_sent[:-1]
