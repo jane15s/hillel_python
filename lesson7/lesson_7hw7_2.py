@@ -6,10 +6,20 @@
 Якщо речення вже закінчується крапкою, додавати ще одну не потрібно, це буде помилкою.
 
 Вхідні аргументи: string.
-
 Вихідні аргументи: string.
 
 Замість pass необхідно написати Ваше рішення.
+
+def correct_sentence(text):
+    pass
+
+assert correct_sentence("greetings, friends") == "Greetings, friends.", 'Test1'
+assert correct_sentence("hello") == "Hello.", 'Test2'
+assert correct_sentence("Greetings. Friends") == "Greetings. Friends.", 'Test3'
+assert correct_sentence("Greetings, friends.") == "Greetings, friends.", 'Test4'
+assert correct_sentence("greetings, friends.") == "Greetings, friends.", 'Test5'
+print('ОК')
+
 """
 import string
 
