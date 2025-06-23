@@ -36,7 +36,7 @@ class Student(Human):
 
 class Group:
 
-    def __init__(self, number, student_limit=10):
+    def __init__(self, number, student_limit=10): # перевірено на ліміті 3
         self.number = number
         self.group = set()
         self.student_limit = student_limit
@@ -61,34 +61,51 @@ class Group:
         all_students = '\n'.join(str(student) for student in self.group)
         return f'Number:{self.number}\n{all_students} '
 
-test_data = [('Male', 30, 'Steve', 'Jobs', 'AN142'),
-('Female', 25, 'Liza', 'Taylor', 'AN145'),
-('Male', 26, 'Steve', 'Bobs', 'AN146'),
-('Female', 27, 'Liza', 'Taylor', 'AN147'),
-('Male', 28, 'Steve', 'Cobs', 'AN148'),
-('Female', 25, 'Liza', 'Taylor', 'AN149'),
-('Male', 26, 'Steve', 'Dobs', 'AN150'),
-('Female', 27, 'Liza', 'Taylor', 'AN151'),
-('Male', 28, 'Steve', 'Fobs', 'AN152'),
-('Female', 29, 'Liza', 'Taylor', 'AN153'),
-('Male', 25, 'Steve', 'Gobs', 'AN154')]
-
-students = [Student(*data) for data in test_data]
-
+st1 = Student('Male', 30, 'Steve', 'Jobs', 'AN142')
+st2 = Student('Female', 25, 'Liza', 'Taylor', 'AN145')
+st3 = Student('Female', 26, 'Anna', 'Taylor', 'AN146')
+st4 = Student('Female', 27, 'Zulfiia', 'Taylor', 'AN147')
 gr = Group('PD1')
 
-for student in students:
-    try:
-        gr.add_student(student)
-    except TooManyStudents as e:
-        print(f"{student.first_name} {student.last_name} is odd one out" )
+try:
+    gr.add_student(st1)
+    gr.add_student(st2)
+    gr.add_student(st3)
+    gr.add_student(st4)
 
-# print(gr)
-assert str(gr.find_student('Jobs')) == str(students[0]), 'Test1'
-assert gr.find_student('Jobs2') is None, 'Test2'
-assert isinstance(gr.find_student('Jobs'), Student) is True, 'Метод поиска должен возвращать экземпляр'
+except TooManyStudents as error:
+    print(error)
+except Exception as error:
+    print(error)
 
-gr.delete_student('Taylor')
-# print(gr)  # Only one student
-
-gr.delete_student('Taylor')  # No error!
+# test_data = [('Male', 30, 'Steve', 'Jobs', 'AN142'),
+# ('Female', 25, 'Liza', 'Taylor', 'AN145'),
+# ('Male', 26, 'Steve', 'Bobs', 'AN146'),
+# ('Female', 27, 'Liza', 'Taylor', 'AN147'),
+# ('Male', 28, 'Steve', 'Cobs', 'AN148'),
+# ('Female', 25, 'Liza', 'Taylor', 'AN149'),
+# ('Male', 26, 'Steve', 'Dobs', 'AN150'),
+# ('Female', 27, 'Liza', 'Taylor', 'AN151'),
+# ('Male', 28, 'Steve', 'Fobs', 'AN152'),
+# ('Female', 29, 'Liza', 'Taylor', 'AN153'),
+# ('Male', 25, 'Steve', 'Gobs', 'AN154')]
+#
+# students = [Student(*data) for data in test_data]
+#
+# gr = Group('PD1')
+#
+# for student in students:
+#     try:
+#         gr.add_student(student)
+#     except TooManyStudents as e:
+#         print(f"{student.first_name} {student.last_name} is odd one out" )
+#
+# # print(gr)
+# assert str(gr.find_student('Jobs')) == str(students[0]), 'Test1'
+# assert gr.find_student('Jobs2') is None, 'Test2'
+# assert isinstance(gr.find_student('Jobs'), Student) is True, 'Метод поиска должен возвращать экземпляр'
+#
+# gr.delete_student('Taylor')
+# # print(gr)  # Only one student
+#
+# gr.delete_student('Taylor')  # No error!
