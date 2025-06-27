@@ -1,4 +1,4 @@
-# class Rational:
+# class Rational: #@ змінити назви функцій, зробити рефакторінг
 #     def __init__(self, a=0, b=1):
 #         a = int(a)
 #         b = int(b)
